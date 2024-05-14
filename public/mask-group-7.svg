@@ -1,0 +1,20 @@
+<svg width="131" height="64" viewBox="0 0 131 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:plus-lighter">
+<mask id="mask0_153_2572" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="131" height="64">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.271484 0.552856H130.672V63.6743H0.271484V0.552856Z" fill="url(#paint0_radial_153_2572)"/>
+</mask>
+<g mask="url(#mask0_153_2572)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M55.2468 17.8639C90.4849 2.66802 123.573 -3.28788 129.24 4.56055C134.842 12.409 110.872 31.1116 75.6992 46.3632C40.5263 61.5591 7.37254 67.515 1.77093 59.6109C-3.89582 51.7624 20.0739 33.0598 55.2468 17.8639Z" fill="url(#paint1_radial_153_2572)"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_153_2572" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(65.4717 32.1136) rotate(90) scale(31.5607 65.2002)">
+<stop stop-color="#01C48C"/>
+<stop offset="1" stop-color="#01C48C" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_radial_153_2572" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(65.4969 32.104) rotate(90) scale(31.0031 64.5555)">
+<stop stop-color="#01C48C"/>
+<stop offset="1" stop-color="#01C48C" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
