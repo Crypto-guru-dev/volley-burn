@@ -5,7 +5,7 @@ type Props = {};
 
 const HeroComponent = (props: Props) => {
   return (
-    <div className="w-full h-full pt-20 flex items-center min-h-screen border">
+    <div className="w-full h-full pt-20 flex items-center min-h-screen">
       <HeroBgComponent />
       <div className="flex">
         <button className="absolute top-[91.8px] left-[45px] rounded-md box-border w-12 h-12 z-[1] border-[2px] border-solid border-mediumseagreen-100">
@@ -37,7 +37,7 @@ const HeroComponent = (props: Props) => {
         <div className="flex flex-col items-center justify-between w-full gap-5">
           <div className="w-min flex flex-col items-start justify-start text-base text-white font-oswald ">
             <div className="w-min flex flex-col items-end justify-start gap-4 text-center font-basic">
-              <div className="self-stretch relative uppercase inline-block shrink-0 [text-shadow:2px_0_0_#1ce4a1,_0_2px_0_#1ce4a1,_-2px_0_0_#1ce4a1,_0_-2px_0_#1ce4a1] [debug_commit:1de1738] z-[10] mq450:text-5xl mq1050:text-13xl">
+              <div className="self-stretch relative uppercase inline-block shrink-0 [text-shadow:2px_0_0_#1ce4a1,_0_2px_0_#1ce4a1,_-2px_0_0_#1ce4a1,_0_-2px_0_#1ce4a1]  z-[10]">
                 <p className="text-8xl font-bungee whitespace-nowrap">
                   Layer 2
                 </p>

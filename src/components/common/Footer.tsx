@@ -4,8 +4,8 @@ type Props = {};
 
 const FooterComponent = (props: Props) => {
   return (
-    <footer className="w-full">
-      <div className="flex flex-row items-start justify-start pt-0 px-[35px] pb-2.5 box-border max-w-full text-left text-xl text-white font-oswald">
+    <div className="w-full">
+      <div className="flex flex-row items-start justify-start p-10 box-border max-w-full text-left text-xl text-white font-oswald">
         <div className="w-11/12 mx-auto flex flex-row items-start justify-between ">
           <div className="w-[161px] flex flex-col items-start justify-start py-0 pr-5 pl-0 box-border gap-[5.4px] text-5xl text-mediumseagreen-200 font-inter">
             <div className="w-[90.8px] flex flex-row items-start justify-start gap-[8px]">
@@ -156,7 +156,7 @@ const FooterComponent = (props: Props) => {
           />
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

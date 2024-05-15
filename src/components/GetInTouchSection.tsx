@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 
-const FrameComponent2: FunctionComponent = () => {
+const GetInTouchSection: FunctionComponent = () => {
   return (
     <div className="self-stretch [background:linear-gradient(180deg,_#8b01fb,_#270e63)] flex flex-col items-center justify-start pt-4 px-5 pb-0 box-border gap-[16px] max-w-full z-[14] text-center text-13xl text-white font-oswald">
       <div className="w-[1439px] h-[529px] relative [background:linear-gradient(180deg,_#8b01fb,_#270e63)] hidden max-w-full" />
@@ -101,4 +101,4 @@ const FrameComponent2: FunctionComponent = () => {
   );
 };
 
-export default FrameComponent2;
+export default GetInTouchSection;
