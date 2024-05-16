@@ -2,8 +2,8 @@ import { FunctionComponent } from "react";
 
 const PartnershipSection: FunctionComponent = () => {
   return (
-    <div className="w-full flex flex-row items-center py-10  -translate-y-10 justify-center  text-white font-oswald">
-      <div className="w-full  max-w-xl flex flex-row gap-4">
+    <div className="relative w-full flex flex-row items-center py-10  -translate-y-10 justify-center  text-white font-oswald">
+      <div className="w-full  max-w-xl flex flex-row gap-4 relative z-10">
         <div className="self-stretch flex flex-row items-start justify-start max-w-full">
           <div className="w-full flex flex-col items-center justify-start gap-5">
             <div className="self-stretch flex flex-row items-center justify-center">
@@ -57,6 +57,11 @@ const PartnershipSection: FunctionComponent = () => {
           </div>
         </div>
       </div>
+      <img
+        className="w-full opacity-50 absolute overflow-visible object-cover -z-10"
+        src="/images/in-partnership-bg.svg"
+        alt="partnership image"
+      />
     </div>
   );
 };

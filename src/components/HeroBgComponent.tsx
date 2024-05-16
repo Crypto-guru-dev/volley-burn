@@ -47,60 +47,29 @@ const HeroBgComponent: FunctionComponent = () => {
       />
       <div className="absolute top-[348.7px] left-[0px] w-[417px] h-[567.2px]">
         <img
-          className="absolute top-[0px] left-[0px] w-full h-full object-cover"
+          className="hidden lg:flex absolute top-[0px] left-[0px] w-full h-full object-cover z-[1]"
           alt=""
           src="/group-2@2x.png"
         />
       </div>
-      <img
-        className="absolute top-[29.8px] left-[1098px] w-3 h-[7.4px] z-[10]"
-        alt=""
-        src="/vector-4.svg"
-      />
-      <img
-        className="absolute top-[29.8px] left-[838px] w-3 h-[7.4px] z-[10]"
-        alt=""
-        src="/vector-4.svg"
-      />
 
       <img
-        className="absolute top-[1341.8px] left-[150px] w-[94px] h-[102.3px] z-[18]"
-        alt=""
-        src="/group-15.svg"
-      />
-      <img
-        className="absolute top-[1733.8px] left-[92px] w-[110px] h-[127.1px] z-[16]"
-        alt=""
-        src="/group-19.svg"
-      />
-      <img
-        className="absolute top-[1133.8px] left-[1270px] w-[70.2px] h-[81.2px] z-[15]"
-        loading="lazy"
-        alt=""
-        src="/group-20.svg"
-      />
-      <img
-        className="absolute top-[1581.8px] left-[1218px] w-[104.1px] h-[96.1px] z-[17]"
-        loading="lazy"
-        alt=""
-        src="/group-17.svg"
-      />
-      <img
-        className="absolute top-[584.8px] left-[639px] w-[163.5px] h-[116.4px] z-[6]"
+        className="absolute top-[560px] left-[650px] w-[150px] h-[120px] z-[6]"
         loading="lazy"
         alt=""
         src="/group-16.svg"
       />
-      {/* <img
+      <img
         className="gradient-img w-full  h-screen absolute object-cover border-8 -z-[1] scale-x-150"
         alt=""
         src="/mask-group.svg"
       />
       <img
-        className="overlay-img w-full h-full absolute mix-blend-darken z-[4]"
+        className="w-full object-cover overlay-img  h-full absolute mix-blend-darken z-[0]"
         alt=""
         src="/-657895920.svg"
       />
+      {/*
       <img
         className="mountain-img w-full h-screen absolute !m-[0] top-[110px] right-0 z-[2] border"
         alt=""
