@@ -6,7 +6,7 @@ type Props = {};
 
 const HeroComponent = (props: Props) => {
   return (
-    <div className="relative min-h-screen min-w-full border-8 pt-20 flex items-center ">
+    <div className="relative min-h-screen min-w-full pt-20 flex items-center ">
       <img
         src="/images/hero-total-bg.svg"
         alt=""
