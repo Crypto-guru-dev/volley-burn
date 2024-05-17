@@ -1,13 +1,20 @@
 import React from "react";
 import HeroBgComponent from "./HeroBgComponent";
+import HeroBackground from "./HeroBackground";
 
 type Props = {};
 
 const HeroComponent = (props: Props) => {
   return (
-    <div className="w-full h-full pt-20 flex items-center min-h-screen ">
-      <HeroBgComponent />
-      <div className="flex absolute top-[91.8px] left-[45px] gap-2">
+    <div className="relative min-h-screen min-w-full border-8 pt-20 flex items-center ">
+      <img
+        src="/images/hero-total-bg.svg"
+        alt=""
+        className="absolute inset-0 min-w-full min-h-screen object-cover object-center "
+      />
+      {/* <HeroBgComponent /> */}
+      {/* <HeroBackground /> */}
+      {/* <div className="flex absolute top-[91.8px] left-[45px] gap-2">
         <a
           href="#"
           className="relative rounded-md size-10 md:size-12 p-2 z-[1] border-[2px] border-solid border-mediumseagreen-100 flex items-center justify-center"
@@ -41,7 +48,7 @@ const HeroComponent = (props: Props) => {
           />
           <div className="absolute top-[0px] left-[0px] rounded-md box-border w-full h-full hidden border-[2px] border-solid border-mediumseagreen-100" />
         </a>
-      </div>
+      </div> */}
       <div className=" w-full h-full flex flex-row items-center justify-center text-mediumseagreen-200 font-inter pb-20">
         <div className="flex flex-col items-center justify-between w-full gap-5">
           <div className="w-min flex flex-col items-start justify-start text-base text-white font-oswald ">

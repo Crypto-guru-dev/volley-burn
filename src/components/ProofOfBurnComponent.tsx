@@ -63,30 +63,7 @@ const ProofOfBurn: FunctionComponent = () => {
               Proof Of Burn
             </h1>
           </div>
-          <div className="absolute inset-0 hidden md:flex">
-            <img
-              className="absolute top-[350px] left-[150px] w-[100px] h-[100px] z-[18]"
-              alt=""
-              src="/group-15.svg"
-            />
-            <img
-              className="absolute top-[950px] left-[92px] w-[110px] h-[120px] z-[16]"
-              alt=""
-              src="/group-19.svg"
-            />
-            <img
-              className="absolute top-[135px] left-[1270px] w-[70px] h-[80px] z-[15]"
-              loading="lazy"
-              alt=""
-              src="/group-20.svg"
-            />
-            <img
-              className="absolute top-[600px] left-[1218px] w-[100px] h-[96px] z-[17]"
-              loading="lazy"
-              alt=""
-              src="/group-17.svg"
-            />
-          </div>
+        
         </div>
 
         <VolleyConstructComponent />

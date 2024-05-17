@@ -98,6 +98,30 @@ const VolleyConstructComponent = (props: Props) => {
               </div>
             </div>
           </div>
+          <div className="absolute inset-0 hidden md:flex z-20">
+            <img
+              className="absolute top-[200px] left-[10px] size-[100px] z-[18]"
+              alt=""
+              src="/group-15.svg"
+            />
+            <img
+              className="absolute bottom-[-0px] -left-24 size-[120px] z-[20]"
+              alt=""
+              src="/group-19.svg"
+            />
+            <img
+              className="absolute top-[135px] -right-20 w-[70px] h-[80px] z-[15]"
+              loading="lazy"
+              alt=""
+              src="/group-20.svg"
+            />
+            <img
+              className="absolute top-[600px] -right-14 size-[100px] z-[17]"
+              loading="lazy"
+              alt=""
+              src="/group-17.svg"
+            />
+          </div>
         </div>
       </div>
       <div className="relative volley-construct w-full flex flex-row items-start justify-center py-10">

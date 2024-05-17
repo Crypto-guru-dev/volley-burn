@@ -9,7 +9,7 @@ import GetInTouchSection from "../components/GetInTouchSection";
 
 const HomePage: FunctionComponent = () => {
   return (
-    <div className="bg-[#270E63] w-full relative overflow-hidden flex flex-col items-center justify-start leading-[normal] tracking-[normal] text-left text-white font-oswald">
+    <div className="min-h-screen min-w-screen bg-[#270E63] w-full relative overflow-hidden flex flex-col items-center justify-start leading-[normal] tracking-[normal] text-left text-white font-oswald">
       <Navbar />
       <HeroComponent />
       <ProofOfBurn />
