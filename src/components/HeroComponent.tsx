@@ -1,18 +1,14 @@
 import React from "react";
 import HeroBgComponent from "./HeroBgComponent";
 import HeroBackground from "./HeroBackground";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const HeroComponent = (props: Props) => {
   return (
-    <div className="relative min-h-screen min-w-full pt-20 flex items-center ">
-      <img
-        src="/images/hero-total-bg.svg"
-        alt=""
-        className="absolute inset-0 min-w-full min-h-screen object-cover object-center "
-      />
-      {/* <HeroBgComponent /> */}
+    <div className="relative min-h-screen min-w-full  flex items-center ">
+      <HeroBgComponent />
       {/* <HeroBackground /> */}
       {/* <div className="flex absolute top-[91.8px] left-[45px] gap-2">
         <a
@@ -53,16 +49,45 @@ const HeroComponent = (props: Props) => {
         <div className="flex flex-col items-center justify-between w-full gap-5">
           <div className="w-min flex flex-col items-start justify-start text-base text-white font-oswald ">
             <div className="w-min flex flex-col items-end justify-start gap-4 text-center font-basic">
-              <div className="self-stretch relative uppercase inline-block shrink-0 [text-shadow:2px_0_0_#1ce4a1,_0_2px_0_#1ce4a1,_-2px_0_0_#1ce4a1,_0_-2px_0_#1ce4a1]  z-[10]">
-                <p className="text-6xl sm:text-7xl md:text-8xl font-bungee whitespace-nowrap">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1,
+                  ease: "easeInOut",
+                  staggerChildren: 0.5,
+                }}
+                className="self-stretch relative uppercase inline-block shrink-0 [text-shadow:2px_0_0_#1ce4a1,_0_2px_0_#1ce4a1,_-2px_0_0_#1ce4a1,_0_-2px_0_#1ce4a1]  z-[10]"
+              >
+                <motion.p className="text-6xl sm:text-7xl md:text-8xl font-bungee whitespace-nowrap">
                   Layer 2
-                </p>
-                <div className="flex flex-col items-center text-xl sm:text-2xl md:text-3xl">
+                </motion.p>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    duration: 1,
+                    delay: 1,
+                    ease: "easeInOut",
+                    staggerChildren: 0.5,
+                  }}
+                  className="flex flex-col items-center text-xl sm:text-2xl md:text-3xl"
+                >
                   <p className="m-0">solution of the</p>
                   <p className="m-0">Ethereum blockchain</p>
-                </div>
-              </div>
-              <div className="self-stretch flex flex-row items-start justify-center py-0 px-5 text-left text-xl font-oswald">
+                </motion.div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1,
+                  delay: 1,
+                  ease: "easeInOut",
+                }}
+                className="self-stretch flex flex-row items-start justify-center py-0 px-5 text-left text-xl font-oswald"
+              >
                 <a
                   href=""
                   className="flex flex-row items-start hover:scale-105 transition-all duration-300 ease-in-out justify-start relative gap-2 shrink-0 z-[9] px-14 py-3"
@@ -83,7 +108,7 @@ const HeroComponent = (props: Props) => {
                     Buy Now
                   </b>
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

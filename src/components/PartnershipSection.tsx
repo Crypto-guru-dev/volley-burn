@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FunctionComponent } from "react";
 
 const PartnershipSection: FunctionComponent = () => {
@@ -6,12 +7,31 @@ const PartnershipSection: FunctionComponent = () => {
       <div className="w-full  max-w-xl flex flex-row gap-4 relative z-10">
         <div className="self-stretch flex flex-row items-start justify-start max-w-full">
           <div className="w-full flex flex-col items-center justify-start gap-5">
-            <div className="self-stretch flex flex-row items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
+                staggerChildren: 0.5,
+              }}
+              className="self-stretch flex flex-row items-center justify-center"
+            >
               <h1 className="text-center relative text-2xl font-bold font-inherit z-[14]">
                 In Partnertship
               </h1>
-            </div>
-            <div className="flex flex-col ">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.5,
+                ease: "easeInOut",
+                staggerChildren: 0.5,
+              }}
+              className="flex flex-col "
+            >
               <div className="w-full grid grid-cols-3 gap-5 place-items-center">
                 <img
                   className="h-20 w-full relative overflow-hidden shrink-0 z-[14]"
@@ -32,7 +52,17 @@ const PartnershipSection: FunctionComponent = () => {
                   src="/gzkgspshan5mnrcetd26vijllpb1638472074635-200x200-1@2x.png"
                 />
               </div>
-              <div className="flex items-center justify-center w-full gap-5 ">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 1,
+                  ease: "easeInOut",
+                  staggerChildren: 0.5,
+                }}
+                className="flex items-center justify-center w-full gap-5 "
+              >
                 <div className="w-1/3 flex items-center gap-x-2">
                   <img
                     className="size-10 relative z-[14] object-contain"
@@ -52,8 +82,8 @@ const PartnershipSection: FunctionComponent = () => {
                   alt=""
                   src="/downloadwwwww-1@2x.png"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FunctionComponent, useMemo, type CSSProperties } from "react";
 
 export type StepSectionType = {
@@ -11,8 +12,23 @@ const StepSection: FunctionComponent<StepSectionType> = ({
   title,
   specifyTheRequirements,
 }) => {
+  const variants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
   return (
-    <div className="w-11/12 lg:w-[40%] mx-auto flex flex-row items-center justify-start gap-5 text-center  text-white font-oswald">
+    <motion.div
+      variants={variants}
+      transition={{ duration: 1 }}
+      className="w-11/12 lg:w-[40%] mx-auto flex flex-row items-center justify-start gap-5 text-center  text-white font-oswald"
+    >
       <div className="size-14 sm:size-16 md:size-20 lg:size-28">
         <img
           className="shrink-0 self-stretch flex-1 relative max-w-full overflow-hidden z-[16]"
@@ -34,7 +50,7 @@ const StepSection: FunctionComponent<StepSectionType> = ({
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

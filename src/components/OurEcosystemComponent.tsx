@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 type Props = {};
@@ -29,6 +30,29 @@ const OurEcosystemComponent = (props: Props) => {
       title: "Stable Coin",
     },
   ];
+
+  // create a stagger animation for the list
+  const parentVariant = {
+    hidden: {},
+    visible: {
+      transition: {
+        delay: 1,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const childVariant = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
   return (
     <div className="w-full relative bg-[transparent] translate-y-20 shadow-[0px_6px_9.8px_rgba(0,_0,_0,_0.25)]  flex flex-row items-start justify-center whitespace-nowrap z-[15]  p-0.5 bg-gradient-to-b to-mediumspringgreen-300 from-pink-400 rounded-[3rem]">
       <div className="w-full flex flex-row items-start justify-start py-5 px-6  text-left bg-[linear-gradient(180deg,_#2A087B_0%,_#02310C_100%)] rounded-[3rem]">
@@ -40,11 +64,18 @@ const OurEcosystemComponent = (props: Props) => {
           </div>
           <div className="self-stretch flex flex-col items-start justify-start">
             <div className="self-stretch flex flex-row items-start justify-center ">
-              <div className="w-full sm:w-11/12 md:w-5/6 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10">
+              <motion.div
+                variants={parentVariant}
+                initial="hidden"
+                whileInView="visible"
+                className="w-full sm:w-11/12 md:w-5/6 grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-10"
+              >
                 {instructions.map((item) => {
                   return (
-                    <button
+                    <motion.button
                       key={item.id}
+                      variants={childVariant}
+                      whileHover={{ scale: 1.05 }}
                       className="cursor-pointer  bg-[transparent]  shadow-[0px_6px_9.8px_rgba(0,_0,_0,_0.25)]  flex flex-row items-start justify-center whitespace-nowrap z-[15]  p-0.5 bg-gradient-to-b to-mediumspringgreen-300 from-pink-400 rounded-lg"
                     >
                       <div className="[background:linear-gradient(180deg,_#2d087b,_#310202)] size-full p-3 md:p-4 lg:p-5 rounded-lg">
@@ -52,10 +83,10 @@ const OurEcosystemComponent = (props: Props) => {
                           {item.title}
                         </b>
                       </div>
-                    </button>
+                    </motion.button>
                   );
                 })}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

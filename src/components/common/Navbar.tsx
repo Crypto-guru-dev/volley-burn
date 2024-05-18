@@ -1,4 +1,10 @@
 import { cn } from "@/utils/utils";
+import {
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Transition,
+} from "@headlessui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -42,7 +48,7 @@ const Navbar = (props: Props) => {
           <div className="flex flex-row items-center justify-start gap-5 md:gap-10 h-full">
             <div className="hidden md:flex flex-col items-center justify-start h-full">
               <div className="flex flex-row items-center justify-start gap-6 h-full">
-                <Link
+                {/* <Link
                   href="/zkevm"
                   className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10]"
                 >
@@ -51,7 +57,54 @@ const Navbar = (props: Props) => {
                     <div className="w-[44px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
                   )}
                   <img className="w-3 h-2 z-[10]" alt="" src="/vector-4.svg" />
-                </Link>
+                </Link> */}
+
+                <Popover className="group">
+                  <PopoverButton className="relative min-w-[45px] flex items-center gap-x-2 whitespace-nowrap z-[10]  outline-none ">
+                    zkEVM
+                    {isActive("/zkEVM") && (
+                      <div className="w-[44px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
+                    )}
+                    <img
+                      // className="w-3 h-2 z-[10]"
+                      className="size-3 group-data-[open]:rotate-180 duration-300 ease-in-out transition-all"
+                      alt=""
+                      src="/vector-4.svg"
+                    />
+                  </PopoverButton>
+                  <Transition
+                    enter="duration-200 ease-out"
+                    enterFrom="scale-95 opacity-0"
+                    enterTo="scale-100 opacity-100"
+                    leave="duration-200 ease-out"
+                    leaveFrom="scale-100 opacity-100"
+                    leaveTo="scale-95 opacity-0"
+                  >
+                    <PopoverPanel
+                      anchor="bottom"
+                      className="flex origin-top flex-col transition bg-[#270E63]/70 backdrop-blur-sm p-5 rounded-lg shadow-lg z-[100] px-5"
+                    >
+                      <Link
+                        href="/link1"
+                        className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                      >
+                        Link 1
+                      </Link>
+                      <Link
+                        href="/link2"
+                        className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                      >
+                        Link 2
+                      </Link>
+                      <Link
+                        href="/link3"
+                        className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                      >
+                        Link 3
+                      </Link>
+                    </PopoverPanel>
+                  </Transition>
+                </Popover>
                 <Link
                   href="/migrations"
                   className={cn(
@@ -78,7 +131,7 @@ const Navbar = (props: Props) => {
                     <div className="w-[63px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
                   )}
                 </Link>
-                <Link
+                {/* <Link
                   href="/ecosystem"
                   className="relative text-white min-w-[69px] shrink-0 flex items-center gap-x-2 whitespace-nowrap z-[10]"
                 >
@@ -87,10 +140,60 @@ const Navbar = (props: Props) => {
                     <div className="w-[63px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
                   )}
                   <img className="w-3 h-2 z-[10]" alt="" src="/vector-4.svg" />
-                </Link>
+                </Link> */}
+                <Popover className="group">
+                  <PopoverButton className="relative min-w-[45px] flex items-center gap-x-2 whitespace-nowrap z-[10]  outline-none ">
+                    Ecosystem
+                    {isActive("/ecosystem") && (
+                      <div className="w-[44px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
+                    )}
+                    <img
+                      // className="w-3 h-2 z-[10]"
+                      className="size-3 group-data-[open]:rotate-180 duration-300 ease-in-out transition-all"
+                      alt=""
+                      src="/vector-4.svg"
+                    />
+                  </PopoverButton>
+                  <Transition
+                    enter="duration-200 ease-out"
+                    enterFrom="scale-95 opacity-0"
+                    enterTo="scale-100 opacity-100"
+                    leave="duration-200 ease-out"
+                    leaveFrom="scale-100 opacity-100"
+                    leaveTo="scale-95 opacity-0"
+                  >
+                    <PopoverPanel
+                      anchor="bottom"
+                      className="flex origin-top flex-col transition bg-[#270E63]/70 backdrop-blur-sm p-5 rounded-lg shadow-lg z-[100] px-5"
+                    >
+                      <Link
+                        href="/link1"
+                        className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                      >
+                        Link 1
+                      </Link>
+                      <Link
+                        href="/link2"
+                        className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                      >
+                        Link 2
+                      </Link>
+                      <Link
+                        href="/link3"
+                        className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                      >
+                        Link 3
+                      </Link>
+                    </PopoverPanel>
+                  </Transition>
+                </Popover>
+
                 <Link
                   href="about-us"
-                  className="relative inline-block min-w-[59px] whitespace-nowrap z-[10]"
+                  className={cn(
+                    "h-full flex items-center  gap-6 shrink-0  relative hover:text-mediumspringgreen-100",
+                    isActive("/migrations") && "text-mediumspringgreen-100"
+                  )}
                 >
                   About Us
                   {isActive("/migrations") && (
@@ -148,16 +251,55 @@ const Navbar = (props: Props) => {
         </div>
         <div className="flex flex-col w-full">
           <div className="flex flex-col items-center justify-start gap-5 py-10">
-            <Link
-              href="/zkevm"
-              className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10]"
-            >
-              zkEVM
-              {isActive("/zkEVM") && (
-                <div className="w-[44px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
-              )}
-              <img className="w-3 h-2 z-[10]" alt="" src="/vector-4.svg" />
-            </Link>
+            {/*  */}
+
+            <Popover className="group">
+              <PopoverButton className="relative min-w-[45px] flex items-center gap-x-2 whitespace-nowrap z-[10]  outline-none ">
+                zkEVM
+                {isActive("/zkEVM") && (
+                  <div className="w-[44px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
+                )}
+                <img
+                  // className="w-3 h-2 z-[10]"
+                  className="size-3 group-data-[open]:rotate-180 duration-300 ease-in-out transition-all"
+                  alt=""
+                  src="/vector-4.svg"
+                />
+              </PopoverButton>
+              <Transition
+                enter="duration-200 ease-out"
+                enterFrom="scale-95 opacity-0"
+                enterTo="scale-100 opacity-100"
+                leave="duration-200 ease-out"
+                leaveFrom="scale-100 opacity-100"
+                leaveTo="scale-95 opacity-0"
+              >
+                <PopoverPanel
+                  anchor="bottom"
+                  className="flex origin-top flex-col transition bg-[#270E63]/70 backdrop-blur-sm p-5 rounded-lg shadow-lg z-[100] px-5"
+                >
+                  <Link
+                    href="/link1"
+                    className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                  >
+                    Link 1
+                  </Link>
+                  <Link
+                    href="/link2"
+                    className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                  >
+                    Link 2
+                  </Link>
+                  <Link
+                    href="/link3"
+                    className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                  >
+                    Link 3
+                  </Link>
+                </PopoverPanel>
+              </Transition>
+            </Popover>
+
             <Link
               href="/migrations"
               className={cn(
@@ -165,9 +307,7 @@ const Navbar = (props: Props) => {
                 isActive("/migrations") && "text-mediumspringgreen-100"
               )}
             >
-              <b className=" inline-block min-w-[63px] whitespace-nowrap z-[10]">
-                Migration
-              </b>
+              Migration
               {isActive("/migrations") && (
                 <div className="w-[63px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
               )}
@@ -184,19 +324,60 @@ const Navbar = (props: Props) => {
                 <div className="w-[63px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
               )}
             </Link>
-            <Link
-              href="/ecosystem"
-              className="relative text-white min-w-[69px] shrink-0 flex items-center gap-x-2 whitespace-nowrap z-[10]"
-            >
-              Ecosystem
-              {isActive("/migrations") && (
-                <div className="w-[63px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
-              )}
-              <img className="w-3 h-2 z-[10]" alt="" src="/vector-4.svg" />
-            </Link>
+
+            <Popover className="group">
+              <PopoverButton className="relative min-w-[45px] flex items-center gap-x-2 whitespace-nowrap z-[10]  outline-none ">
+                Ecosystem
+                {isActive("/ecosystem") && (
+                  <div className="w-[44px] h-[3px] absolute bottom-0 shadow-[0px_0px_40px_rgba(253,_230,_63,_0.24)] bg-mediumspringgreen-100 z-[10]" />
+                )}
+                <img
+                  // className="w-3 h-2 z-[10]"
+                  className="size-3 group-data-[open]:rotate-180 duration-300 ease-in-out transition-all"
+                  alt=""
+                  src="/vector-4.svg"
+                />
+              </PopoverButton>
+              <Transition
+                enter="duration-200 ease-out"
+                enterFrom="scale-95 opacity-0"
+                enterTo="scale-100 opacity-100"
+                leave="duration-200 ease-out"
+                leaveFrom="scale-100 opacity-100"
+                leaveTo="scale-95 opacity-0"
+              >
+                <PopoverPanel
+                  anchor="bottom"
+                  className="flex origin-top flex-col transition bg-[#270E63]/70 backdrop-blur-sm p-5 rounded-lg shadow-lg z-[100] px-5"
+                >
+                  <Link
+                    href="/link1"
+                    className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                  >
+                    Link 1
+                  </Link>
+                  <Link
+                    href="/link2"
+                    className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                  >
+                    Link 2
+                  </Link>
+                  <Link
+                    href="/link3"
+                    className="relative min-w-[44px] flex items-center gap-x-2 whitespace-nowrap z-[10] hover:text-mediumspringgreen-100"
+                  >
+                    Link 3
+                  </Link>
+                </PopoverPanel>
+              </Transition>
+            </Popover>
+
             <Link
               href="about-us"
-              className="relative inline-block min-w-[59px] whitespace-nowrap z-[10]"
+              className={cn(
+                "h-full flex items-center  gap-6 shrink-0  relative hover:text-mediumspringgreen-100",
+                isActive("/migrations") && "text-mediumspringgreen-100"
+              )}
             >
               About Us
               {isActive("/migrations") && (
