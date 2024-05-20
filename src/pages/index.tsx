@@ -1,23 +1,22 @@
-import { FunctionComponent } from "react";
-import Navbar from "@/components/common/Navbar";
-import HeroComponent from "@/components/HeroComponent";
 import FooterComponent from "@/components/common/Footer";
-import ProofOfBurn from "../components/ProofOfBurnComponent";
-import FollowInstructionsComponent from "../components/FollowInstructionsComponent";
-import PartnershipSection from "../components/PartnershipSection";
-import GetInTouchSection from "../components/GetInTouchSection";
+import Navbar from "@/components/common/Navbar";
+import HeroBg from "@/components/HeroBg";
+import { FunctionComponent } from "react";
+import BurnComponent from "@/components/BurnComponent";
+import BurnFAQs from "@/components/BurnFAQs";
 
 const HomePage: FunctionComponent = () => {
   return (
-    <div className="min-h-screen min-w-screen bg-[#270E63] w-full relative overflow-hidden flex flex-col items-center justify-start leading-[normal] tracking-[normal] text-left text-white font-oswald">
+    <main className="min-h-screen w-full flex flex-col  font-inter">
+      <HeroBg />
       <Navbar />
-      <HeroComponent />
-      <ProofOfBurn />
-      <FollowInstructionsComponent />
-      <PartnershipSection />
-      <GetInTouchSection />
+
+      <div className="w-full relative  overflow-hidden flex flex-col items-center py-10 justify-start text-left text-white font-inter gap-y-10">
+        <BurnComponent />
+        <BurnFAQs />
+      </div>
       <FooterComponent />
-    </div>
+    </main>
   );
 };
 

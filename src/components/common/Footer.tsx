@@ -6,7 +6,7 @@ type Props = {};
 
 const FooterComponent = (props: Props) => {
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#270B5B]">
       <div className="flex flex-row items-start justify-start p-5 md:p-10 box-border max-w-full text-left text-xl text-white font-oswald">
         <div className="w-11/12 mx-auto flex flex-row flex-wrap gap-5 items-start justify-between ">
           <div className="w-full md:w-[160px] flex flex-col items-start justify-start  gap-3 text-5xl text-mediumseagreen-200 font-inter">
@@ -18,7 +18,7 @@ const FooterComponent = (props: Props) => {
                 src="/group-34.svg"
               />
               <div className="flex-1 flex flex-col items-start justify-start pt-[1.7px] px-0 pb-0">
-                <h3 className="m-0 self-stretch h-6 relative text-inherit font-normal font-inherit inline-block shrink-0 [debug_commit:1de1738] z-[12] mq450:text-lgi">
+                <h3 className="m-0 self-stretch h-6 relative text-inherit font-inherit inline-block shrink-0 z-[12] text-mediumspringgreen-100 font-semibold font-bungee">
                   V<span className="uppercase">OY</span>
                 </h3>
               </div>
@@ -185,38 +185,39 @@ const FooterComponent = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="self-stretch [background:linear-gradient(180deg,_#46007e,_#270e63)] flex flex-row items-center justify-between pt-[25px] pb-[25.3px] pr-[107px] pl-[35px] box-border relative max-w-full gap-[20px] z-[12] text-left text-base text-gray font-oswald mq450:flex-wrap mq450:pr-5 mq450:box-border mq750:pr-[53px] mq750:box-border">
-        <div className="flex flex-col items-start justify-start">
+      <div className="w-full flex flex-col sm:flex-row [background:linear-gradient(180deg,_#46007e,_#270e63)]  items-center justify-between py-5 md:py-10 px-10 relative max-w-full gap-5 z-[12] text-left text-base text-gray font-oswald">
+        <div className="flex flex-col items-start justify-start text-lg md:text-xl font-semibold">
           <a href="#" className="whitespace-nowrap">
-            Privacy Policy
+            Privacy Policy | Cookies Policy
           </a>
         </div>
         <div className="flex flex-row items-start justify-start gap-5 ">
-          <a
-            href="#"
-            className="size-10 relative flex items-center justify-center rounded-md  z-[1] border-2  border-mediumseagreen-100"
-          >
-            <img className="" alt="" src="/socmed-1.svg" />
+          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md">
+            <div className="p-1 flex items-center justify-center size-full bg-[#17082f]  rounded-md bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
+              <img
+                className="size-6  overflow-hidden "
+                alt=""
+                src="/vector-12.svg"
+              />
+            </div>
           </a>
-          <a
-            href="#"
-            className="size-10 relative flex items-center justify-center rounded-md  z-[1] border-2  border-mediumseagreen-100"
-          >
-            <img
-              className="absolute h-[56.27%] w-[68.55%] top-[21.87%] right-[15.97%] bottom-[21.87%] left-[15.48%] max-w-full overflow-hidden max-h-full"
-              alt=""
-              src="/vector-12.svg"
-            />
+          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md">
+            <div className="p-1 flex items-center justify-center size-full bg-[#17082f]  rounded-md bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
+              <img
+                className="size-6  overflow-hidden "
+                alt=""
+                src="/socmed-1.svg"
+              />
+            </div>
           </a>
-          <a
-            href="#"
-            className="size-10 relative flex items-center justify-center rounded-md  z-[1] border-2  border-mediumseagreen-100"
-          >
-            <img
-              className="absolute h-[56.27%] w-[68.55%] top-[21.87%] right-[15.97%] bottom-[21.87%] left-[15.48%] max-w-full overflow-hidden max-h-full"
-              alt=""
-              src="/vector-13.svg"
-            />
+          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md">
+            <div className="p-1 flex items-center justify-center size-full bg-[#17082f]  rounded-md bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
+              <img
+                className="size-6  overflow-hidden "
+                alt=""
+                src="/vector-13.svg"
+              />
+            </div>
           </a>
         </div>
       </div>
