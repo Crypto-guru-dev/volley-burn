@@ -131,9 +131,9 @@ const BurnComponent = (props: Props) => {
               </p>
             </div>
             <br />
-            <p className="m-0 text-xl md:text-2xl font-semibold">
+            {/* <p className="m-0 text-xl md:text-2xl font-semibold">
               Reward Amount: 0.001V2X
-            </p>
+            </p> */}
           </div>
         </div>
 
