@@ -1,8 +1,9 @@
-import { type Chain } from 'viem'
+import { defineChain } from 'viem'
 
-export const volley = {
+export const volley = /*#__PURE__*/ defineChain({
     id: 9981,
     name: 'Volley',
+    network: "Volley",
     nativeCurrency: { name: 'V2X', symbol: 'V2X', decimals: 18 },
     rpcUrls: {
         default: {
@@ -20,4 +21,9 @@ export const volley = {
         url: 'https://volleyscan.io',
         },
     },
-} as const satisfies Chain
+    contracts: {
+        
+      },
+      testnet: false,
+})
+

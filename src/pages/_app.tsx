@@ -7,7 +7,7 @@ import { sepolia } from 'wagmi/chains'
 import { ToastContainer  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
-import { volley } from "./volley";
+import { volley } from "../components/volley";
 
 
 const chains = [volley]
