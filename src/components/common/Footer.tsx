@@ -192,7 +192,7 @@ const FooterComponent = (props: Props) => {
           </a>
         </div>
         <div className="flex flex-row items-start justify-start gap-5 ">
-          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md">
+          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md" href="https://twitter.com/Volleytoken?t=xm0QJqR7J8SVaywc_ukf3w&s=35" target="_blank">
             <div className="p-1 flex items-center justify-center size-full bg-[#17082f]  rounded-md bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
               <img
                 className="size-6  overflow-hidden "
@@ -201,7 +201,7 @@ const FooterComponent = (props: Props) => {
               />
             </div>
           </a>
-          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md">
+          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md" href="https://t.me/Volleytoken/1" target="_blank">
             <div className="p-1 flex items-center justify-center size-full bg-[#17082f]  rounded-md bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
               <img
                 className="size-6  overflow-hidden "
@@ -210,7 +210,7 @@ const FooterComponent = (props: Props) => {
               />
             </div>
           </a>
-          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md">
+          <a className="size-10 cursor-pointer p-px bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-md" href="https://www.instagram.com/volley_token?igsh=ajVxZGd1M3RuczIx" target="_blank">
             <div className="p-1 flex items-center justify-center size-full bg-[#17082f]  rounded-md bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
               <img
                 className="size-6  overflow-hidden "
