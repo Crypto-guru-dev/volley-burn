@@ -1,19 +1,102 @@
 import { cn } from "@/utils/utils";
 import React, { useState } from "react";
+import voyAbi from '../abi/burn.json';
+import { useAccount, useContractRead, useContractWrite, useWaitForTransaction } from "wagmi";
+import { toast } from "react-toastify"
 
 type Props = {};
 
 const BurnComponent = (props: Props) => {
-  const [currentBalance, setCurrentBalance] = useState(100000000000000);
+  const [currentBalance, setCurrentBalance] = useState(0);
   const [burnAmount, setBurnAmount] = useState<Number | null>(null);
+  const { address } = useAccount()
 
-  const handleBurn = () => {
-    // Burn logic
-  };
+  const [voyApproveTxHash, setVOYApproveTxHash] = useState<any>(null)
+  const [voyStakeTxHash, setVOYStakeTxHash] = useState<any>(null)
 
-  const handleApprove = () => {
-    // Approve logic
-  };
+  console.log("aria burnAmount = ", burnAmount)
+
+  const voyAddress = "0xa3d588fcd59f0637dB0C35763ea26D3Ceb1Cb9F1";
+  const BURN_THRESHOLD = 500000000000;
+
+  const { data:voyBalance, refetch: refetchVOYBalance } = useContractRead({
+    address: voyAddress,
+    abi: voyAbi,
+    functionName: 'balanceOf',
+    args: [address]
+  })
+
+  const { data:voyAllowance, refetch: refetchVOYAllowance } = useContractRead({
+    address: voyAddress,
+    abi: voyAbi,
+    functionName: 'allowance',
+    args: [address, voyAddress]
+  })
+
+  // const { data:burntAmount, refetch: refetchBurntAmount } = useContractRead({
+  //   address: voyAddress,
+  //   abi: voyAbi,
+  //   functionName: 'getValidatorInfo',
+  //   args: [address]
+  // })
+  const { write: voyApprove, isLoading: voyApproveLoading } = useContractWrite({
+    address: voyAddress,
+    abi: voyAbi,
+    functionName: 'approve',
+    onSuccess: (data: any) => {
+      setVOYApproveTxHash(data.hash)
+    }
+  })
+
+  const waitForVOYApprove = useWaitForTransaction({
+    hash: voyApproveTxHash !== null ? voyApproveTxHash : null,
+    onSuccess(data) {
+      console.log("waitForVOYApprove:", waitForVOYApprove, data);
+      refetchVOYAllowance()
+      toast.success("Approve Completed")
+    }
+  })
+
+  function handleApprove(): void {
+    if(Number(burnAmount) > Number(voyBalance) || burnAmount == null || burnAmount == 0){
+      toast.error("Input Correct Amount");
+    }else{
+      voyApprove({
+        args: [voyAddress, Number(burnAmount)*(10**18)]
+      })
+    }
+  }
+
+  const { write: voyBurn, isLoading: voyBurnLoading } = useContractWrite({
+    address: voyAddress,
+    abi: voyAbi,
+    functionName: 'depositForValidator',
+    onSuccess: (data: any) => {
+      setVOYStakeTxHash(data.hash)
+    }
+  })
+
+  const waitForVOYStake = useWaitForTransaction({
+    hash: voyStakeTxHash !== null ? voyStakeTxHash : null,
+    onSuccess(data) {
+      console.log("waitForVOYStake:", waitForVOYStake, data);
+      toast.success("Burn Completed")
+      refetchVOYBalance();
+      // props.setRefetchKey(!props.refetchKey);
+    }
+  })
+
+  function handleBurn(): void {
+    if(Number(burnAmount) > Number(voyAllowance)/(10**18) || burnAmount == null || Number(burnAmount) == 0 ){
+      toast.error("Input Correct Amount");
+    }else if(Number(burnAmount) < BURN_THRESHOLD){
+      toast.error("Minimum Burn Amount is 500,000,000,000 VOY");
+    }else{
+      voyBurn({
+        args: [Number(burnAmount)*(10**18)]
+      })
+    }
+  }
 
   return (
     <div className="w-11/12 max-w-3xl flex flex-col items-start justify-start gap-7">
@@ -58,7 +141,7 @@ const BurnComponent = (props: Props) => {
           <div className="flex-1 flex flex-col items-start justify-start gap-1 max-w-full">
             <div className="self-stretch flex flex-row items-start justify-end">
               <p className="relative z-[1] text-sm md:text-base">
-                Balance: {Intl.NumberFormat("en-US").format(currentBalance)} VOY
+                Balance: {voyBalance !== undefined ? (Number(voyBalance)/(10**18)).toFixed(0).toString() : '0'} VOY
               </p>
             </div>
             <label
@@ -80,8 +163,8 @@ const BurnComponent = (props: Props) => {
                   onChange={(event) => {
                     setBurnAmount(Number(event.target.value));
                   }}
-                  max={currentBalance}
-                  placeholder="50,000,000"
+                  // max={currentBalance}
+                  placeholder="0"
                   className="relative font-bold z-[2] text-xl sm:text-2xl md:text-3xl xl:text-4xl text-right text-white bg-transparent border-0 border-transparent outline-none size-full hide-arrow"
                   inputMode="numeric"
                   type="number"
@@ -92,22 +175,33 @@ const BurnComponent = (props: Props) => {
                 </p>
               </div>
             </label>
+            {/* <div className="self-stretch flex flex-row items-start justify-end">
+              <p className="relative z-[1] text-sm md:text-base">
+                Balance: {burntAmount !== undefined ? (Number(burntAmount)/(10**18)).toFixed(0).toString() : '0'} VOY
+              </p>
+            </div> */}
           </div>
         </div>
         <div className="self-stretch flex flex-row items-start justify-start py-0 pr-[3px] pl-px box-border max-w-full">
           <div className="flex-1 flex flex-row flex-wrap items-start justify-start gap-[29px] max-w-full">
-            <button
-              onClick={handleApprove}
-              className="h-10 md:h-14 cursor-pointer  bg-midnightblue-200 duration-200 flex-1 uppercase font-semibold rounded-lg flex flex-row items-center justify-center z-[1] border-2 border-slategray-200  hover:border-2  hover:border-mediumspringgreen-100 hover:text-mediumspringgreen-100"
-            >
-              APROVE
-            </button>
-            <button
-              onClick={handleBurn}
-              className="h-10 md:h-14 cursor-pointer  bg-midnightblue-200 duration-200 flex-1 uppercase font-semibold rounded-lg flex flex-row items-center justify-center z-[1] border-2 border-slategray-200  hover:border-2  hover:border-mediumspringgreen-100 hover:text-mediumspringgreen-100"
-            >
-              BURN
-            </button>
+            {(Number(voyAllowance)/(10**18) < Number(burnAmount)) ? 
+              (
+                  <button
+                    onClick={handleApprove}
+                    className="h-10 md:h-14 cursor-pointer  bg-midnightblue-200 duration-200 flex-1 uppercase font-semibold rounded-lg flex flex-row items-center justify-center z-[1] border-2 border-slategray-200  hover:border-2  hover:border-mediumspringgreen-100 hover:text-mediumspringgreen-100"
+                  >
+                    APROVE
+                  </button>
+              ) :
+              (
+                <button
+                  onClick={handleBurn}
+                  className="h-10 md:h-14 cursor-pointer  bg-midnightblue-200 duration-200 flex-1 uppercase font-semibold rounded-lg flex flex-row items-center justify-center z-[1] border-2 border-slategray-200  hover:border-2  hover:border-mediumspringgreen-100 hover:text-mediumspringgreen-100"
+                >
+                  BURN
+                </button>
+              )
+            }
           </div>
         </div>
       </div>

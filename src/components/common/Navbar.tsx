@@ -1,13 +1,33 @@
+'use client'
 import { cn } from "@/utils/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { CiMenuFries } from "react-icons/ci";
+import { useWeb3Modal } from "@web3modal/wagmi/react"
+import { useAccount, useDisconnect, useNetwork } from "wagmi"
+import { switchNetwork } from "wagmi/actions";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
+  const { open } = useWeb3Modal()
+  const { isConnected } = useAccount()
+  const { disconnect } = useDisconnect()
+  const { address } = useAccount();
+  const { chains, chain } = useNetwork();
+
+  React.useEffect(() => {
+    // This effect runs every time isOpen changes.
+    if(chain !== null && chain !== undefined && chain.id !== 9981){
+      switchNetwork({ chainId: 9981 });
+    }
+  }, [chain, address]);
+
+  const trimAddress = (addr: any) => {
+    return `${addr.substring(0, 6)}...${addr.substring(addr.length - 4)}`;
+  };
 
   const isActive = (path: string) => {
     // return true if the current path is equal to the path, otherwise return false
@@ -95,13 +115,23 @@ const Navbar = () => {
           alt=""
           src="/group-1608.svg"
         />
-        <button className="cursor-pointer p-0.5 bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-lg">
-          <div className="p-1.5 bg-[#17082f] px-10 rounded-lg bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
-            <div className="relative font-oswald text-transparent !bg-clip-text [background:linear-gradient(180deg,_#8936a9_25.55%,_#1fdfa2)] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center whitespace-nowrap z-[1] font-semibold">
-              Connect Wallet
+        {isConnected ? 
+          (<><button className="cursor-pointer p-0.5 bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-lg" onClick={() => disconnect()}>
+            <div className="p-1.5 bg-[#17082f] px-10 rounded-lg bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
+              <div className="relative font-oswald text-transparent !bg-clip-text [background:linear-gradient(180deg,_#8936a9_25.55%,_#1fdfa2)] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center whitespace-nowrap z-[1] font-semibold">
+                {trimAddress(address)}
+              </div>
             </div>
-          </div>
-        </button>
+            </button></>) :
+
+            (<><button className="cursor-pointer p-0.5 bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-lg" onClick={() => open()}>
+              <div className="p-1.5 bg-[#17082f] px-10 rounded-lg bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
+                <div className="relative font-oswald text-transparent !bg-clip-text [background:linear-gradient(180deg,_#8936a9_25.55%,_#1fdfa2)] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center whitespace-nowrap z-[1] font-semibold">
+                  Connect Wallet
+                </div>
+              </div>
+            </button></>)
+        }
       </div>
       <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
         <CiMenuFries className="size-7" />
@@ -197,13 +227,23 @@ const Navbar = () => {
                 alt=""
                 src="/group-1608.svg"
               />
-              <button className="cursor-pointer p-0.5 bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-lg">
-                <div className="p-1.5 bg-[#17082f] px-10 rounded-lg bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
-                  <div className="relative font-oswald text-transparent !bg-clip-text [background:linear-gradient(180deg,_#8936a9_25.55%,_#1fdfa2)] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center whitespace-nowrap z-[1] font-semibold">
-                    Connect Wallet
-                  </div>
+              {isConnected ? 
+          (<><button className="cursor-pointer p-0.5 bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-lg" onClick={() => disconnect()}>
+            <div className="p-1.5 bg-[#17082f] px-10 rounded-lg bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
+              <div className="relative font-oswald text-transparent !bg-clip-text [background:linear-gradient(180deg,_#8936a9_25.55%,_#1fdfa2)] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center whitespace-nowrap z-[1] font-semibold">
+                {trimAddress(address)}
+              </div>
+            </div>
+            </button></>) :
+
+            (<><button className="cursor-pointer p-0.5 bg-[transparent] rounded-3xs flex flex-row items-center justify-start z-[3]  bg-gradient-to-b from-mediumspringgreen-300 to-pink-400 rounded-lg" onClick={() => open()}>
+              <div className="p-1.5 bg-[#17082f] px-10 rounded-lg bg-[linear-gradient(180deg,_#111145_0%,_#350669_100%)]">
+                <div className="relative font-oswald text-transparent !bg-clip-text [background:linear-gradient(180deg,_#8936a9_25.55%,_#1fdfa2)] [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] text-center whitespace-nowrap z-[1] font-semibold">
+                  Connect Wallet
                 </div>
-              </button>
+              </div>
+            </button></>)
+        }
             </div>
           </div>
         </div>
